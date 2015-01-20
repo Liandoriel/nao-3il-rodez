@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Module Audio</title>
+	<link rel="stylesheet" type="text/css" href="css/design.css"/>
+</h:head>
+
+<h:body>
+	<!-- inclusion de l'entete  -->
+	<ui:include src="html/entete.xhtml"></ui:include>
+	<!-- inclusion du menu -->
+	<ui:include src="html/menu.xhtml"></ui:include>
+	
+	<ui:fragment rendered="#{serveur.setting}">
+		<h3 class="h3_titre">Module Audio</h3>
+		<div style="text-align: center;">
+			<h:form>
+				<table class="audioTable">
+					<tr>
+						<th class="standard"> Volume</th>
+						<td><h:inputText id='vol' value="#{audio.volume}" style="width: 50px; "></h:inputText> %</td>
+						<td><h:commandButton value="Modifier le volume" action="#{audio.modifierVolume}"></h:commandButton></td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<ui:fragment rendered="#{audio.muet}">
+								<h:commandButton value="Démuet" action="#{audio.modifierMuet}" style="width: 100%; "></h:commandButton>
+							</ui:fragment>
+							<ui:fragment rendered="#{!audio.muet}">
+								<h:commandButton value="Muet" action="#{audio.modifierMuet}" style="width: 100% "></h:commandButton>		
+							</ui:fragment>
+						</td>
+					</tr>
+					<tr>
+						<th class="standard">Test de Voix</th>
+						<td colspan="2"><h:commandButton value="Bonjour" action="#{audio.lancerModule}" style="width: 100%"></h:commandButton></td>
+					</tr>
+				</table>
+			</h:form>
+		</div>
+	</ui:fragment>
+	
+	<ui:fragment rendered="#{!serveur.setting}">
+		
+	</ui:fragment>
+	
+	<!-- inclusion du pied de page -->
+	<ui:include src="html/pied.xhtml"></ui:include>
+</h:body>
+
+</html>

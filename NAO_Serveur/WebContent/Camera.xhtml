@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Module Caméra</title>
+	<link rel="stylesheet" type="text/css" href="css/design.css"/>
+</h:head>
+
+<h:body>
+	<!-- inclusion de l'entete  -->
+	<ui:include src="html/entete.xhtml"></ui:include>
+	<!-- inclusion du menu -->
+	<ui:include src="html/menu.xhtml"></ui:include>
+	
+	<ui:fragment rendered="#{serveur.setting}">
+		<h3 class="h3_titre">Module Caméra</h3>
+		<p style="text-align: center;">Pour le moment, aucune image est disponible.</p>
+	</ui:fragment>
+	
+	<ui:fragment rendered="#{!serveur.setting}">
+		
+	</ui:fragment>
+	
+	<!-- inclusion du pied de page -->
+	<ui:include src="html/pied.xhtml"></ui:include>
+</h:body>
+
+</html>

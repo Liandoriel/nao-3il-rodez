@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>HOME</title>
+	<link rel="stylesheet" type="text/css" href="css/design.css"/>
+</h:head>
+
+<h:body>
+	<!-- inclusion de l'entete  -->
+	<ui:include src="html/entete.xhtml"></ui:include>
+	<!-- inclusion du menu -->
+	<ui:include src="html/menu.xhtml"></ui:include>
+	
+	<!-- Description -->
+	<h3>Acceuil</h3>
+	
+	<ui:fragment rendered="#{!serveur.setting}">
+		<fieldset>
+			<legend>Paramètre du serveur</legend>
+			<h:form>
+				<table class="tableConnexion">
+					<tr>
+						<td class="tdConnexion">Adresse IP du NAO</td>
+						<td>
+							<h:inputText required="true" requiredMessage="L'adresse IP est obligatoire" value="#{serveur.ipNAO}" id="ip"></h:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td class="tdConnexion">Port de communication</td>
+						<td>
+							<h:inputText required="true" requiredMessage="Le port" value="#{serveur.portNAO}" id="port"></h:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: center;">
+							<h:commandButton value="Paramétrer le robot NAO" action="#{serveur.connect}"></h:commandButton>	
+						</td>
+					</tr>
+				</table>
+			</h:form>
+		</fieldset>
+	</ui:fragment>
+	
+	<p>
+		Cette application vous permet de visualiser les différentes données du NAO.<br/>
+		Elle est décomposé en 6 modules.
+	</p>
+	<ul>
+		<li>Le module Comportement : Permet de lancer et stopper des activités sur le robot.</li>
+		<li>Le module Actionneur : </li>
+		<li>Le module Audio :</li>
+		<li>Le module Caméra :</li>
+		<li>Le module Capteur :</li>
+		<li>Le module Système : </li>			
+	</ul>
+	
+	<!-- inclusion du pied de page -->
+	<ui:include src="html/pied.xhtml"></ui:include>
+</h:body>
+
+</html>

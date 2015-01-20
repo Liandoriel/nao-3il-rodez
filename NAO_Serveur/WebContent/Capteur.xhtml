@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Module Capteur</title>
+	<link rel="stylesheet" type="text/css" href="css/design.css"/>
+</h:head>
+
+<h:body>
+	<!-- inclusion de l'entete  -->
+	<ui:include src="html/entete.xhtml"></ui:include>
+	<!-- inclusion du menu -->
+	<ui:include src="html/menu.xhtml"></ui:include>
+	
+	<ui:fragment rendered="#{serveur.setting}">
+		<h3 class="h3_titre">Module Capteur</h3>
+		
+		<fieldset>
+			<legend>Temperature</legend>
+			<table>
+				<tr>
+					<th class="standard">Nom du capteur</th>
+					<th class="standard"> Valeur</th>
+				</tr>
+				<ui:repeat varStatus="status" var="cpt" value="#{capteur.cptList}">
+					<tr>
+						<td class="standard">#{cpt.nom}</td>
+						<td class="#{cpt.couleur}">#{cpt.valeur} °C</td>
+					</tr>
+				</ui:repeat>
+			</table>
+		</fieldset>
+		
+		<br/>
+		
+		<fieldset>
+			<legend>Capteur FSR</legend>
+			<table>
+				<tr>
+					<th>Gauche</th>
+					<th>Droit</th>
+				</tr>
+				<tr>
+					<td class="#{capteur.fsr.couleurG}">#{capteur.fsr.fsrGauche}</td>
+					<td class="#{capteur.fsr.couleurD}">#{capteur.fsr.fsrDroit}</td>
+				</tr>
+				<tr>
+					<td class="#{capteur.fsr.couleurG}">#{capteur.fsr.poidsGauche} Kg</td>
+					<td class="#{capteur.fsr.couleurD}">#{capteur.fsr.poidsDroit} Kg</td>
+				</tr>
+			</table>
+		</fieldset>
+	</ui:fragment>
+	
+	
+	<ui:fragment rendered="#{!serveur.setting}">
+		
+	</ui:fragment>
+	
+	<!-- inclusion du pied de page -->
+	<ui:include src="html/pied.xhtml"></ui:include>
+</h:body>
+
+</html>
