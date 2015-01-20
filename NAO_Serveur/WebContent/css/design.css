@@ -1,0 +1,215 @@
+/*
+ * ICI, on ne décrit que le design des parties :
+ * 		ENTETE
+ * 		MENU
+ *  	PIED
+ * 		BODY
+ */
+ 
+/* BODY */
+body
+{
+	background-color : white;
+}
+ 
+ 
+/* ENTETE */
+div#entete
+{
+}
+
+span.enteteSpan
+{
+	text-align : center;
+	height : 100px;
+}
+
+span.entete_img1
+{
+	float : left;
+	width : 24%;
+}
+
+span.entete_img2
+{
+	float : right;
+	width : 24%;
+}
+
+span.entete_titre
+{
+	width : 50%;
+	display : inline-block;
+}
+
+h1#titre
+{
+	font-family : Arial;
+	font-size : 30px;
+	font-style : bold;
+}
+
+h3#soustitre
+{
+	font-family : Arial;
+	font-size : 24px;
+}
+
+/* MENU */
+div#menu
+{
+
+}
+
+table#tabMenu
+{
+	text-align: center;
+	width : 100%;
+}
+
+th.thMenu
+{
+	background-color : #009690;
+	color: white;
+}
+
+td.tdMenu
+{
+	background-color : #5ECFCB;
+	color : black;
+	width : auto;
+}
+
+.submitButton
+{
+	width: 100%;
+}
+
+/* PIED */
+div#pied
+{
+
+}
+
+table#tabPied
+{
+	text-align: center;
+	width : 100%;
+}
+
+th.thPied
+{
+	background-color : #009690;
+	color: white;
+}
+
+td.tdPied
+{
+	background-color : #5ECFCB;
+	color : black;
+	width : auto;
+}
+
+/* ERREUR */
+h3.erreur
+{
+	text-align : center;
+	background-color : red;
+	color : white;
+}
+
+p.erreur
+{
+	text-align : center;
+	color : red;
+}
+
+/* Titre des modules */
+h3.h3_titre
+{
+	text-align: center;
+}
+
+/* Standard */
+th.standard
+{
+	
+}
+
+td.standard
+{
+	text-align: center;
+}
+
+
+fieldset
+{
+	
+}
+
+legend
+{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* Module Actionneur */
+table.actionneur_action
+{
+	text-align : center;
+}
+
+table.actionneur_data
+{
+	text-align: center;
+}
+
+th.btn_action > *
+{
+	padding: 0px;
+	margin:0px;
+	width: 150px;
+	height: 50px;
+}
+
+
+/* Module Systeme */
+table.systemeTable
+{
+	
+}
+
+/* Module Capteur */
+td.tempRouge
+{
+	background-color: red;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+}
+
+td.tempOrange
+{
+	background-color: orange;
+	font-size: 14 px;
+}
+
+td.tempVert
+{
+	background-color: green;
+	font-size: 13px;
+}
+
+td.FSRtouchePas
+{
+	font-size: 15px;
+	font-weight: bold;
+	background-color: red;
+	color: white;
+}
+
+td.FSRtouche
+{
+	font-size: 13px;
+	background-color: green; 
+}

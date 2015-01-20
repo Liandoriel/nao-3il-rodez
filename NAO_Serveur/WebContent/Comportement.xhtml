@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Module Comportement</title>
+	<link rel="stylesheet" type="text/css" href="css/design.css"/>
+</h:head>
+
+<h:body>
+	<!-- inclusion de l'entete  -->
+	<ui:include src="html/entete.xhtml"></ui:include>
+	<!-- inclusion du menu -->
+	<ui:include src="html/menu.xhtml"></ui:include>
+	
+	<ui:fragment rendered="#{serveur.setting}">
+		<h3 class="h3_titre">Module Comportement</h3>
+	</ui:fragment>
+	<ui:fragment rendered="#{!serveur.setting}">
+		
+	</ui:fragment>
+	
+	<h:form>
+		<h:commandButton value="Desactiver" action="#{comportement.stopComportement}"></h:commandButton>
+	</h:form>
+	
+	<table>
+		<tr>
+			<th>Nom</th>
+			<th>Action</th>
+		</tr>
+		<ui:repeat var="data" value="#{comportement.cpt}">
+			<tr>
+				<td>#{data}</td>
+				<h:form>
+					<td>
+						<h:commandButton value="Activer le comportement" action="#{comportement.commande}">
+							<f:setPropertyActionListener target="#{comportement.comp}" value="#{data}"></f:setPropertyActionListener>
+						</h:commandButton>
+					</td>
+				</h:form>
+			</tr>
+		</ui:repeat>
+	</table>
+	
+	<!-- inclusion du pied de page -->
+	<ui:include src="html/pied.xhtml"></ui:include>
+</h:body>
+
+</html>

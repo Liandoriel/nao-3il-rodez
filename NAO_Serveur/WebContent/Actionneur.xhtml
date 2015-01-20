@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Module Actionneur</title>
+	<link rel="stylesheet" type="text/css" href="css/design.css"/>
+</h:head>
+
+<h:body>
+	<!-- inclusion de l'entete  -->
+	<ui:include src="html/entete.xhtml"></ui:include>
+	<!-- inclusion du menu -->
+	<ui:include src="html/menu.xhtml"></ui:include>
+	
+	<ui:fragment rendered="#{serveur.setting}">
+		<h3 class="h3_titre">Module Actionneur</h3>
+		<fieldset>
+			<legend>Action</legend>
+			<h:form>
+				<div style="text-align: center">
+					<table class="actionneur_action">
+						<tr>
+							<th class="btn_action"><h:commandButton value="Ouvrir les mains" action="#{actionneur.ouvrirMain}"></h:commandButton></th>
+							<th class="btn_action"><h:commandButton value="Fermer les mains" action="#{actionneur.fermerMain}"></h:commandButton></th>
+							<th class="btn_action"><h:commandButton value="Se lever" action="#{actionneur.debout}"></h:commandButton></th>
+							<th class="btn_action"><h:commandButton value="S'assoire" action="#{actionneur.assis}"></h:commandButton></th>
+						</tr>
+					</table>
+				</div>
+			</h:form>
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>Information des Actionneurs</legend>
+			<table class="actionneur_data">
+				<tr>
+					<th>Nom</th>
+					<th>Angles</th>
+				</tr>
+				
+				<ui:repeat var="joint" value="#{actionneur.listJoint}">
+					<tr>
+						<td>#{joint.nomJoint}</td>
+						<td>#{joint.angle}</td>
+					</tr>
+				</ui:repeat>
+			</table>
+		</fieldset>
+	</ui:fragment>
+	<ui:fragment rendered="#{!serveur.setting}">
+		
+	</ui:fragment>
+	
+	<!-- inclusion du pied de page -->
+	<ui:include src="html/pied.xhtml"></ui:include>
+</h:body>
+
+</html>
