@@ -49,16 +49,23 @@
 	
 	<p>
 		Cette application vous permet de visualiser les différentes données du NAO.<br/>
-		Elle est décomposé en 6 modules.
+		Elle est décomposée en 6 modules.
 	</p>
 	<ul>
 		<li>Le module Comportement : Permet de lancer et stopper des activités sur le robot.</li>
-		<li>Le module Actionneur : </li>
-		<li>Le module Audio :</li>
-		<li>Le module Caméra :</li>
-		<li>Le module Capteur :</li>
-		<li>Le module Système : </li>			
+		<li>Le module Actionneur : Permet de voir les différents actionneurs du robot</li>
+		<li>Le module Audio : Permet de configurer les parametres audios du robot</li>
+		<li>Le module Caméra : Permet de voir ce que le robot voit (En cours developpement)</li>
+		<li>Le module Capteur : Permet de voir l'état des différents capteurs du robot</li>
+		<li>Le module Système : Permet de voir les données systèmes du robot</li>			
 	</ul>
+	
+	<ui:fragment rendered="#{serveur.setting}">
+		<h:form>
+			<h:commandButton value="Se déconnecter" action="#{serveur.disconnect}"></h:commandButton>
+			<p>Attention, en faisant ceci, vous déconnecter tous les utilisateurs de l'application</p>
+		</h:form>
+	</ui:fragment>
 	
 	<!-- inclusion du pied de page -->
 	<ui:include src="html/pied.xhtml"></ui:include>

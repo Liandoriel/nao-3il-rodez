@@ -35,4 +35,10 @@ public class ServeurBean {
 		return null;
 	}
 	
+	public String disconnect(){
+		ipNAO = null;
+		portNAO = 0;
+		return null;
+	}
+	
 }
