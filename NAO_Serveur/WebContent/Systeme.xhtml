@@ -24,33 +24,19 @@
 			<legend>Information sur NAO</legend>
 			<table class="systemeTable">
 				<tr>
-					<th class='standard'>Nom</th>
-					<td class='standard'>#{systeme.name}</td>
+					<th style="text-align: center;">Nom</th>
+					<td style="text-align: center;">#{systeme.name}</td>
 				</tr>
 				<tr>
-					<th class="standard">Batterie : #{systeme.batterie} %</th>
-					<td class="standard"><img src="image/#{systeme.imgBatterie}"/></td>
+					<th style="text-align: center;">Batterie : #{systeme.batterie} %</th>
+					<td style="text-align: center;"><img src="image/#{systeme.imgBatterie}"/></td>
 				</tr>
 				<tr>
-					<th class="standard">Version</th>
-					<td class="standard">#{systeme.version}</td>
+					<th style="text-align: center;">Version</th>
+					<td style="text-align: center;">#{systeme.version}</td>
 				</tr>
 			</table>
 		</fieldset>
-		<br/>
-		<fieldset>
-			<legend>Information Réseau</legend>
-			<table>
-				<tr>
-					<th class="standard">Connexion filaire</th>
-					<td class="standard"></td>
-				</tr>
-				<tr>
-					<th class="standard">Connexion sans-fil</th>
-					<td class="standard"></td>
-				</tr>
-			</table>
-		</fieldset>	
 	</ui:fragment>
 	
 	<ui:fragment rendered="#{!serveur.setting}">

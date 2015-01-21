@@ -24,25 +24,40 @@
 		
 	</ui:fragment>
 	
-	<h:form>
-		<h:commandButton value="Desactiver" action="#{comportement.stopComportement}"></h:commandButton>
-	</h:form>
-	
-	<table>
+	<table style="border:solid; border-collapse: collapse;">
 		<tr>
-			<th>Nom</th>
-			<th>Action</th>
-		</tr>
-		<ui:repeat var="data" value="#{comportement.cpt}">
-			<tr>
-				<td>#{data}</td>
+			<td class="standard" colspan="2" style="text-align: center; ">
 				<h:form>
-					<td>
-						<h:commandButton value="Activer le comportement" action="#{comportement.commande}">
-							<f:setPropertyActionListener target="#{comportement.comp}" value="#{data}"></f:setPropertyActionListener>
-						</h:commandButton>
-					</td>
+					<h:commandButton value="Desactiver" action="#{comportement.stopComportement}" style="width: 250px; height: 50px; "></h:commandButton>
 				</h:form>
+			</td>
+		</tr>
+		<tr>
+			<th class="standard" style="padding-left: 20px; padding-right: 20px;">Nom</th>
+			<th class="standard" style="padding-left: 20px; padding-right: 20px;">Action</th>
+		</tr>
+		<ui:repeat varStatus="status" var="data" value="#{comportement.cpt}">
+			<tr>
+				<h:panelGroup rendered="#{status.even}">
+					<td class="standard impaire">#{data}</td>
+					<h:form>
+						<td class="standard impaire">
+							<h:commandButton value="Activer le comportement" action="#{comportement.commande}">
+								<f:setPropertyActionListener target="#{comportement.comp}" value="#{data}"></f:setPropertyActionListener>
+							</h:commandButton>
+						</td>
+					</h:form>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{status.odd}">
+					<td class="standard paire">#{data}</td>
+					<h:form>
+						<td class="standard paire">
+							<h:commandButton value="Activer le comportement" action="#{comportement.commande}">
+								<f:setPropertyActionListener target="#{comportement.comp}" value="#{data}"></f:setPropertyActionListener>
+							</h:commandButton>
+						</td>
+					</h:form>
+				</h:panelGroup>
 			</tr>
 		</ui:repeat>
 	</table>
