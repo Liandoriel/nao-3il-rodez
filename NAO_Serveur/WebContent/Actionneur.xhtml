@@ -47,20 +47,20 @@
 				
 				<ui:repeat varStatus="status" var="joint" value="#{actionneur.listJoint}">
 					<h:panelGroup rendered="#{status.even}">
-					<tr>
-						<td class="impaire">#{joint.nomJoint}</td>
-						<td class="impaire">#{joint.angle}</td>
-						<td class="impaire">#{joint.min}</td>
-						<td class="impaire">#{joint.max}</td>
-					</tr>
+						<tr>
+							<td class="impaire">#{joint.nomJoint}</td>
+							<td class="impaire">#{joint.angle}</td>
+							<td class="impaire">#{joint.min}</td>
+							<td class="impaire">#{joint.max}</td>
+						</tr>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{status.odd}">
-					<tr>
-						<td class="paire">#{joint.nomJoint}</td>
-						<td class="paire">#{joint.angle}</td>
-						<td class="paire">#{joint.min}</td>
-						<td class="paire">#{joint.max}</td>
-					</tr>
+						<tr>
+							<td class="paire">#{joint.nomJoint}</td>
+							<td class="paire">#{joint.angle}</td>
+							<td class="paire">#{joint.min}</td>
+							<td class="paire">#{joint.max}</td>
+						</tr>
 					</h:panelGroup>
 				</ui:repeat>
 			</table>
