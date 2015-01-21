@@ -46,13 +46,13 @@ public class FsrData {
 		poidsGauche = poidsG;
 		
 		try{
-			if(Float.parseFloat(fsrD) < 1){
+			if(fsrD == "0.0"){
 				couleurD = "FSRtouchePas";
 			}else{
 				couleurD = "FSRtouche";
 			}
 			
-			if(Float.parseFloat(fsrG) < 1){
+			if(fsrG == "0.0"){
 				couleurG = "FSRtouchePas";
 			}else{
 				couleurG = "FSRtouche";
