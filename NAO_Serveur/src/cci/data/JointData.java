@@ -19,14 +19,31 @@ public class JointData {
 	}
 	private String nomJoint;
 	private String angle;
+	private String min;
+	
+	public String getMin() {
+		return min;
+	}
+	public String getMax() {
+		return max;
+	}
+	public void setMin(String min) {
+		this.min = min;
+	}
+	public void setMax(String max) {
+		this.max = max;
+	}
+	private String max;
 	
 	public JointData(){
 		nomJoint = "";
 		angle = "";
 	}
 	
-	public JointData(String nom, String angle){
+	public JointData(String nom, String angle, String min, String max){
 		nomJoint = nom;
 		this.angle = angle;
+		this.min = min;
+		this.max = max;
 	}
 }
