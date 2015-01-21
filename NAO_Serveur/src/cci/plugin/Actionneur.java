@@ -35,15 +35,23 @@ public class Actionneur implements Plugin {
 			Future<java.lang.Object> cptObj = adp.call("getBodyNames", "Joints");
 			
 			if(cptObj != null){
-				@SuppressWarnings({ "unchecked", "unused" })
+				@SuppressWarnings( { "unchecked", "unused" } )
 				List<String> ret = (List<String>) cptObj.<List<String>>get();
 				for (String value : ret) {
 					Future<java.lang.Object> cptData = adp.call("getAngles", value, false);
-					
+					Future<java.lang.Object> cptLim = adp.call("getLimits", value);
 					@SuppressWarnings("unchecked")
 					List<Float> resF = (List<Float>) cptData.get();
+					@SuppressWarnings("unchecked")
+					List<java.lang.Object> resL = (List<java.lang.Object>) cptLim.get();
+					@SuppressWarnings("unchecked")
+					ArrayList<Float> limites = (ArrayList<Float>) resL.get(0);
 					
-					listJoint.add(new JointData(value, resF.get(0).toString()));
+					Float angle = (float)Math.round((((resF.get(0) * 180)/Math.PI) * 100) / 100);
+					Float min = (float)Math.round((((limites.get(0) * 180)/Math.PI) * 100) / 100);
+					Float max = (float)Math.round((((limites.get(1) * 180)/Math.PI) * 100) / 100);
+					
+					listJoint.add(new JointData(value, angle.toString(), min.toString(), max.toString()));
 				}
 			}
 		}catch(Exception e){

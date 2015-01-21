@@ -133,7 +133,8 @@ h3.h3_titre
 /* Standard */
 th.standard
 {
-	
+	text-align: center;
+	border:solid 1px;
 }
 
 td.standard
@@ -162,6 +163,24 @@ table.actionneur_action
 table.actionneur_data
 {
 	text-align: center;
+	border : solid;
+	border-collapse: collapse;
+}
+
+td.paire
+{
+	background-color: #A2DEEC;
+	border : solid 1px;	
+	padding-left : 15px;
+	padding-right: 15px;
+}
+
+td.impaire
+{
+	background-color: #50C8E4;
+	border : solid 1px;	
+	padding-left : 15px;
+	padding-right: 15px;
 }
 
 th.btn_action > *

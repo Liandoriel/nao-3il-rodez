@@ -39,15 +39,29 @@
 			<legend>Information des Actionneurs</legend>
 			<table class="actionneur_data">
 				<tr>
-					<th>Nom</th>
-					<th>Angles</th>
+					<th class="standard" style="padding-left: 20px; padding-right: 20px;">Nom</th>
+					<th class="standard" style="padding-left: 20px; padding-right: 20px;">Angles</th>
+					<th class="standard" style="padding-left: 20px; padding-right: 20px;">Minimum</th>
+					<th class="standard" style="padding-left: 20px; padding-right: 20px;">Maximum</th>
 				</tr>
 				
-				<ui:repeat var="joint" value="#{actionneur.listJoint}">
+				<ui:repeat varStatus="status" var="joint" value="#{actionneur.listJoint}">
+					<h:panelGroup rendered="#{status.even}">
 					<tr>
-						<td>#{joint.nomJoint}</td>
-						<td>#{joint.angle}</td>
+						<td class="impaire">#{joint.nomJoint}</td>
+						<td class="impaire">#{joint.angle}</td>
+						<td class="impaire">#{joint.min}</td>
+						<td class="impaire">#{joint.max}</td>
 					</tr>
+					</h:panelGroup>
+					<h:panelGroup rendered="#{status.odd}">
+					<tr>
+						<td class="paire">#{joint.nomJoint}</td>
+						<td class="paire">#{joint.angle}</td>
+						<td class="paire">#{joint.min}</td>
+						<td class="paire">#{joint.max}</td>
+					</tr>
+					</h:panelGroup>
 				</ui:repeat>
 			</table>
 		</fieldset>

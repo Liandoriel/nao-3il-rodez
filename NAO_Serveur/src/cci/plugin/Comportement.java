@@ -113,8 +113,7 @@ public class Comportement implements Plugin{
 		return null;
 	}
 	
-	@SuppressWarnings("unused")
-	private String stopComportement(){
+	public String stopComportement(){
 		Session session = null;
 		try{
 			session = new Session();
@@ -124,7 +123,16 @@ public class Comportement implements Plugin{
 			Object adp = null;
 			adp = session.service("ALBehaviorManager");
 			adp.call("stopAllBehaviors");
-			adp.call("startBehavior", "securite_Robot");
+			
+			// on regarde si le comportement est installé
+			Future<java.lang.Object> obj = adp.call("isBehaviorLoaded", "securite_Robot");
+			
+			if(obj != null){
+				boolean isInstalled = (boolean)obj.get();
+				if(isInstalled){
+					adp.call("startBehavior", "securite_Robot");
+				}
+			}
 			
 		}catch(Exception e){
 			e.printStackTrace();
